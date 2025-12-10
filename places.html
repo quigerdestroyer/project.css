@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Топ мест в Париже</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding-top: 140px; }
+    .brand-img { width: 56px; height: auto; border-radius: 6px; }
+    nav .nav-link.active { font-weight: 700; color: #0d6efd !important; border-bottom: 3px solid rgba(13,110,253,0.2); }
+    .card-grid { gap: 1rem; display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); }
+    .card a { text-decoration: none; color: inherit; }
+  </style>
+</head>
+<body>
+
+<header class="fixed-top bg-white shadow-sm">
+  <div class="container d-flex align-items-center justify-content-between py-2">
+    <div class="d-flex align-items-center">
+      <img src="img/logo.png.png" alt="logo" class="brand-img me-2">
+      <div>
+        <div class="brand-label h5 mb-0">Париж</div>
+        <small class="text-muted">Мой любимый город</small>
+      </div>
+    </div>
+    <nav id="mainNav" class="nav">
+      <a class="nav-link" href="index.html#about">О городе</a>
+      <a class="nav-link active" href="places.html">Топ мест в Париже</a>
+      <a class="nav-link" href="forms.html">Формы</a>
+      <a class="nav-link" href="https://ru.wikipedia.org/wiki/Париж">Википедия</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Топ мест в Париже</h2>
+  <div id="placesGrid" class="card-grid my-3"></div>
+  <p><a href="index.html#top">Вернуться на главную</a></p>
+</main>
+
+<script>
+const places = [
+  { title: 'Эйфелева башня', img: 'img/latoureiffel.png', text: 'Икона Парижа и смотровая площадка.', wiki: 'https://ru.wikipedia.org/wiki/Эйфелева_башня' },
+  { title: 'Лувр', img: 'img/luvr.png', text: 'Один из крупнейших музеев мира.', wiki: 'https://ru.wikipedia.org/wiki/Лувр' },
+  { title: 'Монмартр', img: 'img/large2.png', text: 'Арт-квартал с базиликой Сакре-Кёр.', wiki: 'https://ru.wikipedia.org/wiki/Монмартр' },
+  { title: 'Триумфальная арка', img: 'img/arc.png', text: 'Исторический памятник на Елисейских полях.', wiki: 'https://ru.wikipedia.org/wiki/Триумфальная_арка_(Париж)' },
+  { title: 'Собор Нотр-Дам', img: 'img/notre.png', text: 'Готический собор с богатой историей.', wiki: 'https://ru.wikipedia.org/wiki/Собор_Парижской_Богоматери' },
+  { title: 'Люксембургский сад', img: 'img/sad.png', text: 'Красивый парк для прогулок.', wiki: 'https://ru.wikipedia.org/wiki/Люксембургский_сад' },
+  { title: 'Музей Орсе', img: 'img/museum.png', text: 'Музей импрессионистов.', wiki: 'https://ru.wikipedia.org/wiki/Музей_Орсе' },
+  { title: 'Елисейские поля', img: 'img/po.lua.png', text: 'Широкая и знаменитая улица.', wiki: 'https://ru.wikipedia.org/wiki/Елисейские_поля' }
+];
+
+const grid = document.getElementById('placesGrid');
+places.forEach(p => {
+  const card = document.createElement('article');
+  card.className = 'card p-2 shadow-sm';
+  card.innerHTML = `
+    <a href="${p.wiki}" target="_blank">
+      <img src="${p.img}" alt="${p.title}" class="img-fluid rounded mb-2">
+      <h5 class="mb-1">${p.title}</h5>
+      <p class="small text-muted mb-0">${p.text}</p>
+    </a>
+  `;
+  grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>

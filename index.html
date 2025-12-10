@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Париж - мой любимый город</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding-top: 90px; } 
+    .brand-img { width: 56px; height: auto; border-radius: 6px; }
+    nav .nav-link.active { font-weight: 700; color: #0d6efd !important; border-bottom: 3px solid rgba(13,110,253,0.2); }
+    section { padding: 48px 0; }
+    .figure-thumb img { max-width: 120px; cursor: pointer; border-radius: 6px; }
+    .card-grid { gap: 1rem; display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); }
+    .table-card img { max-width: 100%; border-radius: 6px; }
+    footer { padding: 24px 0; border-top: 1px solid #e9ecef; margin-top: 32px; }
+    @media (max-width: 575px) {
+      .brand-label { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="fixed-top bg-white shadow-sm">
+  <div class="container d-flex align-items-center justify-content-between py-2">
+    <div class="d-flex align-items-center">
+      <img src="img/logo.png.png" alt="logo" class="brand-img me-2">
+      <div>
+        <div class="brand-label h5 mb-0">Париж</div>
+        <small class="text-muted">Мой любимый город</small>
+      </div>
+    </div>
+
+    <nav id="mainNav" class="nav">
+      <a class="nav-link active" href="#about">О городе</a>
+      <a class="nav-link" href="places.html">Топ мест в Париже</a>
+      <a class="nav-link" href="forms.html">Формы</a>
+      <a class="nav-link" href="https://ru.wikipedia.org/wiki/Париж">Википедия</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="about" class="border-bottom">
+    <h2>О городе</h2>
+    <p>Париж - столица Франции, один из самых известных и красивых городов мира. Он расположен на берегах реки Сены и известен своей архитектурой, музеями и уютными улицами.</p>
+
+    <h4 id="about#history">История</h4>
+    <p>Город с древнеримских времён: развитие торговли, искусства и науки сделали Париж культурным центром Европы.</p>
+
+    <h4 id="about#culture">Культура</h4>
+    <p>Театры, музеи, гастрономия и уличная жизнь - всё это формирует неповторимую атмосферу Парижа.</p>
+    <p><a href="#top">Вернуться к началу</a></p>
+  </section>
+
+  <section id="sights" class="border-bottom">
+    <h2>Достопримечательности</h2>
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h3>Самые красивые места</h3>
+        <ul>
+          <li>Эйфелева башня</li>
+          <li>Лувр</li>
+          <li>Собор Парижской Богоматери</li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-6">
+        <h3>Места для ценителей эстетики</h3>
+        <ol>
+          <li>Триумфальная арка</li>
+          <li>Монмартр</li>
+          <li>Елисейские поля</li>
+        </ol>
+      </div>
+    </div>
+    <p><a href="#top">Вернуться к началу</a></p>
+  </section>
+
+  <section id="gallery" class="border-bottom">
+    <h2>Галерея</h2>
+    <p>Нажмите на миниатюру, чтобы открыть большое изображение в текущем окне.</p>
+
+    <div class="d-flex flex-wrap gap-3">
+      <figure class="figure figure-thumb">
+        <a href="img/large1.png"><img src="img/thumb1.png" alt="Париж крупно" class="img-thumbnail"></a>
+        <figcaption class="figure-caption small">Вид на город.</figcaption>
+      </figure>
+      <figure class="figure figure-thumb">
+        <a href="img/large2.png"><img src="img/thumb2.png" alt="Монмартр" class="img-thumbnail"></a>
+        <figcaption class="figure-caption small">Монмартр - художественный район.</figcaption>
+      </figure>
+    </div>
+    <p><a href="#top">Вернуться к началу</a></p>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

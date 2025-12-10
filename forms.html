@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Формы</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding-top: 120px; }
+    .brand-img { width: 56px; height: auto; border-radius: 6px; }
+    nav .nav-link.active { font-weight: 700; color: #0d6efd !important; border-bottom: 3px solid rgba(13,110,253,0.2); }
+  </style>
+</head>
+<body>
+
+<header class="fixed-top bg-white shadow-sm">
+  <div class="container d-flex align-items-center justify-content-between py-2">
+    <div class="d-flex align-items-center">
+      <img src="img/logo.png.png" alt="logo" class="brand-img me-2">
+      <div>
+        <div class="brand-label h5 mb-0">Париж</div>
+        <small class="text-muted">Мой любимый город</small>
+      </div>
+    </div>
+    <nav id="mainNav" class="nav">
+      <a class="nav-link" href="index.html#about">О городе</a>
+      <a class="nav-link" href="places.html">Топ мест в Париже</a>
+      <a class="nav-link active" href="forms.html">Формы</a>
+      <a class="nav-link" href="https://ru.wikipedia.org/wiki/Париж">Википедия</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2>Формы</h2>
+
+  <!-- Контактная форма -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Контактная форма</h5>
+      <form id="contactForm" action="https://httpbin.org/post" method="post" novalidate>
+        <div class="row g-2">
+          <div class="col-12 col-md-6">
+            <label class="form-label">Фамилия</label>
+            <input required class="form-control" type="text" name="surname" value="Иванов">
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Имя</label>
+            <input required class="form-control" type="text" name="name" value="Иван">
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Возраст</label>
+            <input required class="form-control" type="number" name="age" min="1" max="120" value="30">
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Уровень языка</label>
+            <input required class="form-control" type="text" name="language_level" value="A1">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Комментарий</label>
+            <textarea class="form-control" name="comment" rows="3">Хочу узнать про экскурсии</textarea>
+          </div>
+        </div>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-primary">Отправить</button>
+          <button type="reset" class="btn btn-outline-secondary">Сбросить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Форма заказа экскурсии -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Заказ экскурсии</h5>
+      <form id="orderForm" action="https://httpbin.org/post" method="post" novalidate>
+        <div class="row g-2">
+          <div class="col-12 col-md-6">
+            <label class="form-label">Контактное имя</label>
+            <input required class="form-control" type="text" name="contact_name" value="Анна">
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Количество человек</label>
+            <input required class="form-control" type="number" name="people_count" min="1" value="2">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Вид экскурсии</label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="tour_type" id="tourBus" value="bus" checked>
+                <label class="form-check-label" for="tourBus">Автобусная</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="tour_type" id="tourWalk" value="walk">
+                <label class="form-check-label" for="tourWalk">Пешеходная</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label">Дата экскурсии</label>
+            <input required class="form-control" type="date" name="tour_date">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Особые пожелания</label>
+            <textarea class="form-control" name="notes" rows="2">миллион долларов</textarea>
+          </div>
+        </div>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-success">Заказать</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <p><a href="index.html#top">Вернуться на главную</a></p>
+</main>
+
+<script>
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', function(e) {
+    const requiredInvalid = Array.from(form.querySelectorAll('[required]')).some(inp => !inp.value);
+    if (requiredInvalid) {
+      e.preventDefault();
+      alert('Пожалуйста, заполните обязательные поля перед отправкой.');
+    }
+  });
+});
+
+// Устанавливаем дату экскурсии на завтра
+const orderDate = document.querySelector('input[name="tour_date"]');
+if(orderDate){
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  orderDate.valueAsDate = tomorrow;
+}
+</script>
+
+</body>
+</html>
